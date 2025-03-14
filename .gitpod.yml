@@ -1,0 +1,17 @@
+tasks:
+  - name: Install Flutter
+    init: |
+      if [ ! -d "$HOME/flutter" ]; then
+curl -fsSL https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.29.2-stable.tar.xz | tar -xJ -C $HOME
+        echo 'export PATH="$HOME/flutter/bin:$PATH"' >> ~/.bashrc
+      fi
+      source ~/.bashrc
+ 
+  - name: Install Dependencies
+    init: |
+      sudo apt-get update
+      sudo apt-get install -y libgtk-3-dev
+      if ! command -v google-chrome &> /dev/null; then
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt-get -fy install
+      fi
