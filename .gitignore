@@ -41,3 +41,5 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+commandlinetools-linux-9477386_latest.zip
+google-chrome-stable_current_amd64.deb
